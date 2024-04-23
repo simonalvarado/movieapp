@@ -71,7 +71,7 @@ The movies page displays a list of movies fetched from an external API. It inclu
 
 The Single Movie Page component displays detailed information about a specific movie.
 
-![Single Movie Page](/example_images/example_images/single-movie-page.png)
+![Single Movie Page](/example_images/single-movie-page.png)
 
 ## Credits
 
