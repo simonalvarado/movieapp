@@ -55,7 +55,7 @@ export default {
 <style lang="scss" scoped>
 .login-container {
   max-width: 400px;
-  color: #fff;
+  color: #f5f5f7;
   width: 100%;
   margin: 32px auto;
 }
@@ -91,7 +91,7 @@ input {
   border-radius: 4px;
   height: 48px;
   background-color: rgba(22, 22, 22, 0.7);
-  color: #fff;
+  color: #f5f5f7;
 
   &:focus {
     outline: none;
@@ -117,7 +117,7 @@ input {
   height: 48px;
   padding: 10px;
   background-color: rgb(229, 9, 20);
-  color: #fff;
+  color: #f5f5f7;
   border: none;
   border-radius: 4px;
   cursor: pointer;

@@ -1,68 +1,86 @@
-# movieapp
+# Movies App
 
-## Build Setup
+This project implements a web application for managing and viewing movie information. It consists of three main components: LoginPage, MoviesPage, and SingleMoviePage.
+
+## Getting Started
+
+To run this project locally on your machine, follow these steps:
+
+### Prerequisites
+
+- Node.js and npm installed (Download and install from [Node.js website](https://nodejs.org/))
+
+### Installation
+
+1. Clone the repository to your local machine:
 
 ```bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
+git clone https://github.com/simonalvarado/movieapp.git
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+2. Navigate to the project directory:
 
-## Special Directories
+```bash
+cd movieapp
+```
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+3. Install the project dependencies:
 
-### `assets`
+```bash
+npm install
+```
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+### Usage
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
+1. Start the development server:
 
-### `components`
+```bash
+npm run dev
+```
 
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
+The application will be accessible at http://localhost:3000.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
+Open your browser and go to http://localhost:3000 to access the app.
 
-### `layouts`
+#### Dummy User Credentials
 
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
+For demo purposes, you can use the following dummy credentials to log in:
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
+- Username: `test@example.com`
+- Password: `password`
 
-### `pages`
+## Structure
 
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
+The project is structured as follows:
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
+### Login Page
 
-### `plugins`
+The login page is the first page that users see when they access the application. It contains a form where users can enter their username and password to log in.
 
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
 
-### `static`
+![Login Page](/movieapp/example_images/login-page.png)
 
-This directory contains your static files. Each file inside this directory is mapped to `/`.
+### Movies Page
 
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
+The movies page displays a list of movies fetched from an external API. It includes sections for new releases, recommended movies, recommended series, and popular anime.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
+![Movies Page](/movieapp/example_images/movies-page.png)
 
-### `store`
+### Single Movie Page
 
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
+The Single Movie Page component displays detailed information about a specific movie.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+![Single Movie Page](/movieapp/example_images/single-movie-page.png)
+
+## Credits
+
+- Movie data obtained from OMDb API (https://www.omdbapi.com/)
+
+## Contributing
+
+Contributions are welcome! Feel free to submit a pull request or open an issue if you find a bug or have a feature request.
+
+## Contact
+
+For any questions or comments, please contact me at my email: simonjesusalvarado@gmail.com

@@ -5,6 +5,19 @@ import axios from 'axios'
 const apiKey = '9ba874f8'
 const baseURL = `http://www.omdbapi.com/?apikey=${apiKey}`
 
+const newRealeasesIds = [
+  'tt27503384',
+  'tt13238346',
+  'tt17009710',
+  'tt7160372',
+  'tt14230458',
+  'tt12637874',
+  'tt17279496',
+  'tt2788316',
+  'tt15398776',
+  'tt3581920',
+]
+
 const moviesRecommendedIds = [
   'tt0206634',
   'tt15239678',
@@ -67,6 +80,11 @@ async function getMoviesByIds(ids) {
   }
   return movies
 }
+
+export function getNewReleases() {
+  return getMoviesByIds(newRealeasesIds)
+}
+
 export function getMoviesRecommended() {
   return getMoviesByIds(moviesRecommendedIds)
 }

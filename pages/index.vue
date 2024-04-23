@@ -1,7 +1,7 @@
 <template>
   <div class="login-page">
     <div class="title-container">
-      <h1 class="title">Movies App</h1>
+      <h1 class="movies-app-title">movies app</h1>
     </div>
     <MovieAppLogin
       :error-message="loginError ? 'Invalid email or password.' : ''"
@@ -57,7 +57,7 @@ export default {
 .title-container {
   display: block;
   text-align: center;
-  color: #fff;
-  padding: 60px 0;
+  color: #f5f5f7;
+  padding: 60px 0 60px;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar">
-    <NuxtLink to="/movies" class="navbar-title">Movies App</NuxtLink>
+    <NuxtLink to="/movies" class="movies-app-title">movies app</NuxtLink>
   </nav>
 </template>
 
@@ -10,16 +10,9 @@
 <style scoped>
 .navbar {
   padding: 20px;
-  color: #fff;
+  color: #f5f5f7;
   @media (max-width: 600px) {
       padding: 20px 20px 0 20px;
   }
-}
-
-.navbar-title {
-  color: #fff;
-  text-decoration: none;
-  font-size: 24px;
-  font-weight: bold;
 }
 </style>

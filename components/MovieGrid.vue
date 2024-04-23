@@ -2,19 +2,23 @@
   <div class="grid">
     <h1 class="grid-title">{{ title }}</h1>
     <div class="grid-body">
-      <button
-        v-if="showLeftArrow"
-        class="scroll-arrow left"
-        @click="scrollLeft"
-      ></button>
+<button
+  v-if="showLeftArrow"
+  class="scroll-arrow left"
+    aria-label="Scroll left"
+  tabindex="0"
+  @click="scrollLeft"
+></button>
       <ul ref="list" class="grid-list" @scroll="checkScroll">
         <MovieCard v-for="item in items" :key="item.imdbID" :movie="item" />
       </ul>
-      <button
-        v-if="showRightArrow"
-        class="scroll-arrow right"
-        @click="scrollRight"
-      ></button>
+<button
+  v-if="showRightArrow"
+  class="scroll-arrow right"
+  aria-label="Scroll right"
+  tabindex="0" 
+  @click="scrollRight"
+></button>
     </div>
   </div>
 </template>
@@ -77,6 +81,7 @@ export default {
   overscroll-behavior-x: none;
   scroll-snap-type: x mandatory;
   padding: 20px 0 0 20px;
+  justify-content: start;
 }
 
 .grid-title {
@@ -121,6 +126,9 @@ export default {
   &.right {
     right: 0;
     transform: scaleX(-1);
+  }
+  &:focus {
+    outline: 2px solid #000;
   }
 }
 </style>

@@ -41,10 +41,11 @@ export default {
 
 <style lang="scss" scoped>
 .single-movie {
-  color: #fff;
+  color: #f5f5f7;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 32px 16px;
+  padding: 32px 20px;
+  max-width: 900px;
 }
 </style>

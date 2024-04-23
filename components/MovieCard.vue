@@ -55,7 +55,7 @@ export default {
     color: #333;
     text-decoration: none; 
     text-align: center;
-    color: #fff;
+    color: #f5f5f7;
     @media (max-width: 600px) {
       display: none;
     }
