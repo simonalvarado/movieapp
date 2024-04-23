@@ -5,6 +5,7 @@ import axios from 'axios'
 const apiKey = '9ba874f8'
 const baseURL = `http://www.omdbapi.com/?apikey=${apiKey}`
 
+// The IDs of the movies to fetch are defined as arrays of strings.
 const newRealeasesIds = [
   'tt27503384',
   'tt13238346',
@@ -17,7 +18,6 @@ const newRealeasesIds = [
   'tt15398776',
   'tt3581920',
 ]
-
 const moviesRecommendedIds = [
   'tt0206634',
   'tt15239678',
@@ -45,7 +45,6 @@ const moviesRecommendedIds = [
   'tt0118884',
   'tt0095489',
 ]
-
 const seriesRecommendedIds = [
   'tt2356777',
   'tt0417299',
@@ -58,7 +57,6 @@ const seriesRecommendedIds = [
   'tt3032476',
   'tt4574334',
 ]
-
 const animePopularIds = [
   'tt0112159',
   'tt0094625',
@@ -72,32 +70,40 @@ const animePopularIds = [
   'tt0409591',
 ]
 
+// This function fetches movie data for an array of IDs.
 async function getMoviesByIds(ids) {
   const movies = []
   for (const id of ids) {
-    const response = await axios.get(`${baseURL}&i=${id}`)
-    movies.push(response.data)
+    try {
+      const response = await axios.get(`${baseURL}&i=${id}`)
+      movies.push(response.data)
+    } catch (error) {
+      throw new Error(`Failed to fetch movie with id ${id}: ${error.message}`)
+    }
   }
   return movies
 }
 
+// These functions fetch movie data for different categories.
 export function getNewReleases() {
   return getMoviesByIds(newRealeasesIds)
 }
-
 export function getMoviesRecommended() {
   return getMoviesByIds(moviesRecommendedIds)
 }
-
 export function getSeriesRecommended() {
   return getMoviesByIds(seriesRecommendedIds)
 }
-
 export function getAnimePopular() {
   return getMoviesByIds(animePopularIds)
 }
 
+// This function fetches data for a single movie.
 export async function getSingleMovie(id) {
-  const response = await axios.get(`${baseURL}&i=${id}`)
-  return response.data
+  try {
+    const response = await axios.get(`${baseURL}&i=${id}`)
+    return response.data
+  } catch (error) {
+    throw new Error(`Failed to fetch movie with id ${id}: ${error.message}`)
+  }
 }

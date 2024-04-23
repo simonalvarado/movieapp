@@ -2,15 +2,37 @@
   <div class="login-container">
     <form @submit.prevent="login">
       <h2 class="login-title">Sign in</h2>
-      <div v-if="errorMessage" class="error-message-container">
+      <div
+        v-if="errorMessage"
+        id="error-message"
+        class="error-message-container"
+      >
         <p class="error-message">{{ errorMessage }}</p>
       </div>
       <div class="form-group">
-        <input id="email" v-model="email" type="email" placeholder="Email" required :class="{ 'invalid-input': isInvalidEmail }" @keyup="validateEmail">
-        <p v-if="isInvalidEmail" class="validation-message">Please enter a valid email.</p>
+        <input
+          id="email"
+          v-model="email"
+          type="email"
+          placeholder="Email"
+          required
+          :class="{ 'invalid-input': isInvalidEmail }"
+          aria-describedby="email-error error-message"
+          @keyup="validateEmail"
+        />
+        <p v-if="isInvalidEmail" id="email-error" class="validation-message">
+          Please enter a valid email.
+        </p>
       </div>
       <div class="form-group">
-        <input id="password" v-model="password" type="password" placeholder="Password" required>
+        <input
+          id="password"
+          v-model="password"
+          type="password"
+          placeholder="Password"
+          required
+          aria-describedby="error-message"
+        />
       </div>
       <button type="submit" class="login-button">Sign In</button>
     </form>
@@ -19,37 +41,42 @@
 
 <script>
 export default {
+  // The error message to display
   props: {
     errorMessage: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   data() {
     return {
       email: '',
       password: '',
-      emailTouched: false
-    };
+      emailTouched: false,
+    }
   },
   computed: {
+    // Check if the email is valid
     isInvalidEmail() {
-      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return this.emailTouched && !re.test(this.email.toLowerCase());
-    }
+      const re =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      return this.emailTouched && !re.test(this.email.toLowerCase())
+    },
   },
   methods: {
+    // Validate the email when the user types
     validateEmail() {
-      this.emailTouched = true;
+      this.emailTouched = true
     },
+    // Emit the login event with the email and password
     login() {
       if (this.isInvalidEmail) {
-        return;
+        return
       }
-      this.$emit('login', { email: this.email, password: this.password });
-    }
-  }
-};
+      this.$emit('login', { email: this.email, password: this.password })
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped>
@@ -121,5 +148,8 @@ input {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  &:hover {
+    background-color: rgb(189, 8, 17);
+  }
 }
 </style>

@@ -1,12 +1,12 @@
 <template>
   <MovieLoading v-if="$fetchState.pending" />
   <div v-else class="container single-movie">
-    <MovieInfo :movie="movie" />
+    <MovieInfo :movie="movie" aria-label="Movie information" />
   </div>
 </template>
 
 <script>
-import { getSingleMovie } from '~/services/moviesService.js';
+import { getSingleMovie } from '~/services/moviesService.js'
 
 export default {
   name: 'SingleMovie',
@@ -19,21 +19,24 @@ export default {
     await this.getSingleMovie()
   },
   head() {
-        return {
-            title: this.movie ? `Watch ${this.movie.Title} - Movies App` : 'Movies App',
-            meta: [
-                {
-                    hid: 'description',
-                    name: 'description',
-                    content: this.movie ? this.movie.Plot : 'Get the latest movies online.',
-                },
-            ],
-        };
-    },
-  fetchDelay: 1000,
+    return {
+      title: this.movie
+        ? `Watch ${this.movie.Title} - Movies App`
+        : 'Movies App',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.movie
+            ? this.movie.Plot
+            : 'Get the latest movies online.',
+        },
+      ],
+    }
+  },
   methods: {
     async getSingleMovie() {
-      this.movie = await getSingleMovie(this.$route.params.id);
+      this.movie = await getSingleMovie(this.$route.params.id)
     },
   },
 }

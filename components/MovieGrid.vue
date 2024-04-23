@@ -2,23 +2,23 @@
   <div class="grid">
     <h1 class="grid-title">{{ title }}</h1>
     <div class="grid-body">
-<button
-  v-if="showLeftArrow"
-  class="scroll-arrow left"
-    aria-label="Scroll left"
-  tabindex="0"
-  @click="scrollLeft"
-></button>
+      <button
+        v-if="showLeftArrow"
+        class="scroll-arrow left"
+        aria-label="Scroll left"
+        tabindex="0"
+        @click="scrollLeft"
+      ></button>
       <ul ref="list" class="grid-list" @scroll="checkScroll">
         <MovieCard v-for="item in items" :key="item.imdbID" :movie="item" />
       </ul>
-<button
-  v-if="showRightArrow"
-  class="scroll-arrow right"
-  aria-label="Scroll right"
-  tabindex="0" 
-  @click="scrollRight"
-></button>
+      <button
+        v-if="showRightArrow"
+        class="scroll-arrow right"
+        aria-label="Scroll right"
+        tabindex="0"
+        @click="scrollRight"
+      ></button>
     </div>
   </div>
 </template>
@@ -48,15 +48,19 @@ export default {
     this.checkScroll()
   },
   methods: {
+    // Check if the scroll buttons should be displayed
     checkScroll() {
       const list = this.$refs.list
       this.showLeftArrow = list.scrollLeft > 0
       this.showRightArrow =
         list.scrollWidth - list.clientWidth > list.scrollLeft
     },
+    // Scroll the list to the left
     scrollLeft() {
       this.$refs.list.scrollLeft -= 500
     },
+    // Scroll the list to the right
+
     scrollRight() {
       this.$refs.list.scrollLeft += 500
     },

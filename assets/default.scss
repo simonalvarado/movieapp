@@ -1,7 +1,8 @@
+// Impoting fonts from google fonts
 @import url('https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
-
+// Global styles
 * {
   margin: 0;
   padding: 0;
@@ -20,46 +21,19 @@
   opacity: 0;
 }
 
+// App background styles
 .app {
-background: rgb(46,45,48);
-background: linear-gradient(149deg, rgba(46,45,48,1) 0%, rgba(3,3,3,1) 75%, rgba(3,3,3,1) 100%);
+  background: rgb(46, 45, 48);
+  background: linear-gradient(
+    149deg,
+    rgba(46, 45, 48, 1) 0%,
+    rgba(3, 3, 3, 1) 75%,
+    rgba(3, 3, 3, 1) 100%
+  );
   min-height: 100vh;
 }
 
-.movies-app-title, .movies-app-subtitle {
-  font-weight: 300;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 22px;
-  color: #f5f5f7;
-  text-decoration: none;
-}
-
-.button {
-  display: inline-block;
-  text-decoration: none;
-  color: inherit;
-  padding: 8px 16px;
-  background-color: #c92502;
-  border: none;
-  color: #f5f5f7;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: 0.3s ease all;
-
-  &:hover {
-    background-color: #891b02;
-  }
-}
-
-.button-light {
-  background-color: transparent;
-  border: 1px solid #c92502;
-
-  &:hover {
-    border-color: transparent;
-  }
-}
-
+// Container styles for centering and setting max width
 .container {
   max-width: 1400px;
   margin: 0 auto;

@@ -55,8 +55,7 @@ export default {
     text-align: center;
     h1 {
       line-height: 32px;
-        padding-bottom: 5px;
-      
+      padding-bottom: 5px;
     }
   }
   .movie-img {
@@ -117,8 +116,8 @@ export default {
       flex-direction: row;
       gap: 20px;
       .movie-fact {
-      margin-top: 0px;
-      margin-bottom: 12px;
+        margin-top: 0px;
+        margin-bottom: 12px;
       }
     }
   }

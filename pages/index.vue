@@ -1,10 +1,11 @@
 <template>
   <div class="login-page">
     <div class="title-container">
-      <h1 class="movies-app-title">movies app</h1>
+      <MovieAppTitle />
     </div>
     <MovieAppLogin
       :error-message="loginError ? 'Invalid email or password.' : ''"
+      aria-label="Login form"
       @login="handleLogin"
     />
   </div>
@@ -30,6 +31,7 @@ export default {
     }
   },
   methods: {
+    // This method handles the login logic
     handleLogin({ email, password }) {
       // Dummy login logic
       if (email === 'test@example.com' && password === 'password') {

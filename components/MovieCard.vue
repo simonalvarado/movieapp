@@ -1,20 +1,24 @@
 <template>
   <li class="movie-card">
-      <nuxt-link :to="`/movies/${movie.imdbID}`">
-        <img class="movie-poster" :src="movie.Poster" :alt="movie.Title" />
-        <div class="movie-title">{{ movie.Title.slice(0, 45) }}<span v-if="movie.Title.length > 50">...</span></div>
-      </nuxt-link>
+    <nuxt-link :to="`/movies/${movie.imdbID}`">
+      <img class="movie-poster" :src="movie.Poster" :alt="movie.Title" />
+      <div class="movie-title">
+        {{ movie.Title.slice(0, 45)
+        }}<span v-if="movie.Title.length > 50">...</span>
+      </div>
+    </nuxt-link>
   </li>
 </template>
 
 <script>
 export default {
   props: {
+    // The movie object to display
     movie: {
       type: Object,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 }
 </script>
 
@@ -38,11 +42,12 @@ export default {
     object-fit: cover;
     border-radius: 8px;
     transition: all 0.3s ease-in-out;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 
     &:hover {
       transform: scale(1.05);
-    box-shadow: 0 24px 38px rgba(0,0,0,0.30), 0 12px 12px rgba(0,0,0,0.22);
+      box-shadow: 0 24px 38px rgba(0, 0, 0, 0.3),
+        0 12px 12px rgba(0, 0, 0, 0.22);
     }
     @media (max-width: 600px) {
       height: 200px;
@@ -53,7 +58,7 @@ export default {
     font-size: 16px;
     font-weight: 500;
     color: #333;
-    text-decoration: none; 
+    text-decoration: none;
     text-align: center;
     color: #f5f5f7;
     @media (max-width: 600px) {
