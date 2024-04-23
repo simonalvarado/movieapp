@@ -59,19 +59,19 @@ The login page is the first page that users see when they access the application
 
 
 
-![Login Page](./example_images/login-page.png)
+![Login Page](/example_images/login-page.png)
 
 ### Movies Page
 
 The movies page displays a list of movies fetched from an external API. It includes sections for new releases, recommended movies, recommended series, and popular anime.
 
-![Movies Page](./example_images/movies-page.png
+![Movies Page](/example_images/movies-page.png)
 
 ### Single Movie Page
 
 The Single Movie Page component displays detailed information about a specific movie.
 
-![Single Movie Page](./example_images/single-movie-page.png)
+![Single Movie Page](/example_images/example_images/single-movie-page.png)
 
 ## Credits
 
