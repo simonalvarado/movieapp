@@ -1,8 +1,9 @@
 import axios from 'axios'
 
 // Normally, we would store the API key in an environment variable for security.
-// For testing purposes of this code challenge, I've included it directly in the code.
-const apiKey = '9ba874f8'
+// For the purposes of this code challenge, I've included a fallback API key directly in the code.
+// In a production application, we would not include the API key in the code.
+const apiKey = process.env.OMDB_API_KEY || '9ba874f8'
 const baseURL = `http://www.omdbapi.com/?apikey=${apiKey}`
 
 // The IDs of the movies to fetch are defined as arrays of strings.
@@ -71,31 +72,32 @@ const animePopularIds = [
 ]
 
 // This function fetches movie data for an array of IDs.
-async function getMoviesByIds(ids) {
-  const movies = []
-  for (const id of ids) {
-    try {
-      const response = await axios.get(`${baseURL}&i=${id}`)
-      movies.push(response.data)
-    } catch (error) {
-      throw new Error(`Failed to fetch movie with id ${id}: ${error.message}`)
-    }
-  }
-  return movies
+async function fetchMoviesByIds(ids) {
+  const moviePromises = ids.map((id) =>
+    axios
+      .get(`${baseURL}&i=${id}`)
+      .then((response) => response.data)
+      .catch((error) => {
+        console.error(`Failed to fetch movie with id ${id}:`, error)
+        return null
+      })
+  )
+  const movies = await Promise.all(moviePromises)
+  return movies.filter((movie) => movie !== null) // Filter out any failed requests
 }
 
 // These functions fetch movie data for different categories.
 export function getNewReleases() {
-  return getMoviesByIds(newRealeasesIds)
+  return fetchMoviesByIds(newRealeasesIds)
 }
 export function getMoviesRecommended() {
-  return getMoviesByIds(moviesRecommendedIds)
+  return fetchMoviesByIds(moviesRecommendedIds)
 }
 export function getSeriesRecommended() {
-  return getMoviesByIds(seriesRecommendedIds)
+  return fetchMoviesByIds(seriesRecommendedIds)
 }
 export function getAnimePopular() {
-  return getMoviesByIds(animePopularIds)
+  return fetchMoviesByIds(animePopularIds)
 }
 
 // This function fetches data for a single movie.
