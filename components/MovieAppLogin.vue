@@ -10,6 +10,7 @@
         <p class="error-message">{{ errorMessage }}</p>
       </div>
       <div class="form-group">
+        <label for="email" class="visually-hidden">Email</label>
         <input
           id="email"
           v-model="email"
@@ -25,6 +26,7 @@
         </p>
       </div>
       <div class="form-group">
+        <label for="password" class="visually-hidden">Password</label>
         <input
           id="password"
           v-model="password"
@@ -79,7 +81,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import'~@/assets/scss/_variables.scss';
+@import '~@/assets/scss/_variables.scss';
 
 .login-container {
   max-width: 400px;
@@ -115,14 +117,14 @@ label {
 input {
   width: 100%;
   padding: 10px;
-  border: 1px solid rgba(128, 128, 128, 0.7);
+  border: $input-border;
   border-radius: 4px;
   height: 48px;
-  background-color: rgba(22, 22, 22, 0.7);
+  background-color: $input-background-color;
   color: $main-font-color;
 
   &:focus {
-    outline: none;
+    outline: auto;
   }
 }
 
@@ -131,6 +133,7 @@ input {
 
   &:focus {
     border-color: rgb(229, 9, 20);
+    outline: none;
   }
 }
 
@@ -152,5 +155,15 @@ input {
   &:hover {
     background-color: rgb(189, 8, 17);
   }
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 </style>

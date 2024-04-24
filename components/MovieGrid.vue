@@ -1,5 +1,5 @@
 <template>
-  <div class="grid">
+  <div v-if="items.length" class="grid">
     <h1 class="grid-title">{{ title }}</h1>
     <div class="grid-body">
       <button

@@ -5,7 +5,7 @@
 <script></script>
 
 <style lang="scss" scoped>
-@import'~@/assets/scss/_variables.scss';
+@import '~@/assets/scss/_variables.scss';
 
 .movies-app-title {
   font-weight: 300;
@@ -13,5 +13,6 @@
   font-size: 22px;
   color: $main-font-color;
   text-decoration: none;
+  padding-top: 4px;
 }
 </style>

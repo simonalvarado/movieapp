@@ -25,7 +25,8 @@
 }
 
 // App background styles
-.app {
+.app {  
+  background-color: rgb(46, 45, 48);
   background: rgb(46, 45, 48);
   background: linear-gradient(
     149deg,
@@ -40,4 +41,9 @@
 .container {
   max-width: 1400px;
   margin: 0 auto;
+}
+
+/* Ensure scrollbar always occupies fixed space */
+body {
+  overflow-y: scroll; /* Always show scrollbar */
 }
