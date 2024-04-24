@@ -1,6 +1,9 @@
-// Impoting fonts from google fonts
+// Importing fonts from google fonts
 @import url('https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+// Importing variables
+@import'~@/assets/scss/_variables.scss';
 
 // Global styles
 * {

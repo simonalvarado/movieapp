@@ -46,6 +46,12 @@ export default {
   },
   mounted() {
     this.checkScroll()
+    // Add an event listener for the resize event to update the arrows when the viewport is resized
+    window.addEventListener('resize', this.checkScroll)
+  },
+  beforeDestroy() {
+    // Remove the event listener when the component is destroyed to prevent memory leaks
+    window.removeEventListener('resize', this.checkScroll)
   },
   methods: {
     // Check if the scroll buttons should be displayed
@@ -55,12 +61,11 @@ export default {
       this.showRightArrow =
         list.scrollWidth - list.clientWidth > list.scrollLeft
     },
-    // Scroll the list to the left
+    // Function to scroll the list to the left, used by the left arrow button
     scrollLeft() {
       this.$refs.list.scrollLeft -= 500
     },
-    // Scroll the list to the right
-
+    // Function to scroll the list to the right, used by the right arrow button
     scrollRight() {
       this.$refs.list.scrollLeft += 500
     },

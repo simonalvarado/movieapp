@@ -46,6 +46,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import'~@/assets/scss/_variables.scss';
+
 .login-page {
   display: flex;
   justify-content: flex-start;
@@ -59,7 +61,7 @@ export default {
 .title-container {
   display: block;
   text-align: center;
-  color: #f5f5f7;
+  color: $main-font-color;
   padding: 60px 0 60px;
 }
 </style>

@@ -17,6 +17,8 @@
 <script></script>
 
 <style lang="scss" scoped>
+@import '~@/assets/scss/_variables.scss';
+
 .movie-footer {
   width: 100%;
   display: flex;
@@ -31,10 +33,11 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  color: #cacaca;
+  color: $footer-font-color;
   .movies-app-title {
     font-size: 14px;
     margin-bottom: 24px;
+    font-weight: 300;
   }
   p {
     margin-bottom: 12px;

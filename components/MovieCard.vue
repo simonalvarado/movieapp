@@ -3,8 +3,8 @@
     <nuxt-link :to="`/movies/${movie.imdbID}`">
       <img class="movie-poster" :src="movie.Poster" :alt="movie.Title" />
       <div class="movie-title">
-        {{ movie.Title.slice(0, 45)
-        }}<span v-if="movie.Title.length > 50">...</span>
+        {{ movie.Title.slice(0, 45) }}
+        <span v-if="movie.Title.length > 50">...</span>
       </div>
     </nuxt-link>
   </li>
@@ -13,7 +13,6 @@
 <script>
 export default {
   props: {
-    // The movie object to display
     movie: {
       type: Object,
       required: true,
@@ -23,6 +22,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import'~@/assets/scss/_variables.scss';
+
 .movie-card {
   display: block;
   width: 150px;
@@ -60,7 +61,7 @@ export default {
     color: #333;
     text-decoration: none;
     text-align: center;
-    color: #f5f5f7;
+    color: $main-font-color;
     @media (max-width: 600px) {
       display: none;
     }

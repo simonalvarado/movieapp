@@ -71,22 +71,39 @@ const animePopularIds = [
   'tt0409591',
 ]
 
-// This function fetches movie data for an array of IDs.
+// Utility function to fetch movie data for a single ID.
+export async function fetchSingleMovie(id) {
+  try {
+    const response = await axios.get(`${baseURL}&i=${id}`)
+    return response.data
+  } catch (error) {
+    throw new Error(`Failed to fetch movie with id ${id}: ${error.message}`)
+  }
+}
+
+// Utility function to fetch movie data for an array of IDs.
 async function fetchMoviesByIds(ids) {
   const moviePromises = ids.map((id) =>
     axios
       .get(`${baseURL}&i=${id}`)
       .then((response) => response.data)
       .catch((error) => {
-        console.error(`Failed to fetch movie with id ${id}:`, error)
-        return null
+        throw new Error(`Failed to fetch movie with id ${id}: ${error.message}`)
       })
   )
-  const movies = await Promise.all(moviePromises)
-  return movies.filter((movie) => movie !== null) // Filter out any failed requests
+
+  try {
+    const movies = await Promise.allSettled(moviePromises)
+    const successfulMovies = movies
+      .filter((moviePromise) => moviePromise.status === 'fulfilled')
+      .map((moviePromise) => moviePromise.value)
+    return successfulMovies
+  } catch (error) {
+    throw new Error('Error fetching movies: ' + error.message)
+  }
 }
 
-// These functions fetch movie data for different categories.
+// Fetch movie data for different categories.
 export function getNewReleases() {
   return fetchMoviesByIds(newRealeasesIds)
 }
@@ -98,14 +115,4 @@ export function getSeriesRecommended() {
 }
 export function getAnimePopular() {
   return fetchMoviesByIds(animePopularIds)
-}
-
-// This function fetches data for a single movie.
-export async function getSingleMovie(id) {
-  try {
-    const response = await axios.get(`${baseURL}&i=${id}`)
-    return response.data
-  } catch (error) {
-    throw new Error(`Failed to fetch movie with id ${id}: ${error.message}`)
-  }
 }

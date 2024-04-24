@@ -4,11 +4,11 @@
   </div>
 </template>
 
-<script>
-export default {}
-</script>
+<script></script>
 
 <style lang="scss" scoped>
+@import'~@/assets/scss/_variables.scss';
+
 .loading {
   height: 90vh;
   width: 100%;
@@ -28,7 +28,7 @@ export default {}
     height: 70px;
     border-radius: 50%;
     border: 2px solid transparent;
-    border-top-color: #f5f5f7;
+    border-top-color: $main-font-color;
     animation: circle-loading 1200ms ease infinite;
   }
 }

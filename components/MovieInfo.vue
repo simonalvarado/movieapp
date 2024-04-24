@@ -45,12 +45,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import'~@/assets/scss/_variables.scss';
+
 .movie-info {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 32px;
-  color: #f5f5f7;
+  color: $main-font-color;
   .main-container {
     text-align: center;
     h1 {

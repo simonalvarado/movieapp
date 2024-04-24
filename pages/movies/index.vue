@@ -70,7 +70,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import'~@/assets/scss/_variables.scss';
+
 .home {
-  color: #f5f5f7;
+  color: $main-font-color;
 }
 </style>

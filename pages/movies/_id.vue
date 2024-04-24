@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { getSingleMovie } from '~/services/moviesService.js'
+import { fetchSingleMovie } from '~/services/moviesService.js'
 
 export default {
   name: 'SingleMovie',
@@ -15,8 +15,9 @@ export default {
       movie: '',
     }
   },
+  // Fetch data for a single movie using its ID from the route parameters
   async fetch() {
-    await this.getSingleMovie()
+    this.movie = await fetchSingleMovie(this.$route.params.id)
   },
   head() {
     return {
@@ -34,17 +35,14 @@ export default {
       ],
     }
   },
-  methods: {
-    async getSingleMovie() {
-      this.movie = await getSingleMovie(this.$route.params.id)
-    },
-  },
 }
 </script>
 
 <style lang="scss" scoped>
+@import'~@/assets/scss/_variables.scss';
+
 .single-movie {
-  color: #f5f5f7;
+  color: $main-font-color;
   display: flex;
   flex-direction: column;
   justify-content: center;

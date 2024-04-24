@@ -41,7 +41,6 @@
 
 <script>
 export default {
-  // The error message to display
   props: {
     errorMessage: {
       type: String,
@@ -80,9 +79,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import'~@/assets/scss/_variables.scss';
+
 .login-container {
   max-width: 400px;
-  color: #f5f5f7;
+  color: $main-font-color;
   width: 100%;
   margin: 32px auto;
 }
@@ -118,7 +119,7 @@ input {
   border-radius: 4px;
   height: 48px;
   background-color: rgba(22, 22, 22, 0.7);
-  color: #f5f5f7;
+  color: $main-font-color;
 
   &:focus {
     outline: none;
@@ -144,7 +145,7 @@ input {
   height: 48px;
   padding: 10px;
   background-color: rgb(229, 9, 20);
-  color: #f5f5f7;
+  color: $main-font-color;
   border: none;
   border-radius: 4px;
   cursor: pointer;
