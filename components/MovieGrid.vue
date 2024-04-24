@@ -74,6 +74,9 @@ export default {
   width: 100%;
   overflow: hidden;
   box-sizing: content-box;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
 .grid-list {
   display: grid;
