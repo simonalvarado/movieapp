@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar">
+  <nav class="movie-navbar">
     <NuxtLink
       to="/movies"
       class="movies-app-link"
@@ -32,7 +32,7 @@ export default {
 <style lang="scss" scoped>
 @import '~@/assets/scss/_variables.scss';
 
-.navbar {
+.movie-navbar {
   position: relative;
   display: flex;
   justify-content: center;

@@ -1,5 +1,5 @@
 <template>
-  <div class="form-group">
+  <div class="movie-search-bar">
     <label for="search-input" class="visually-hidden">Search for titles</label>
     <input
       id="search-input"
@@ -30,7 +30,7 @@ export default {
 <style lang="scss" scoped>
 @import '~@/assets/scss/_variables.scss';
 
-.form-group {
+.movie-search-bar {
   display: flex;
   justify-content: center;
   width: 100%;

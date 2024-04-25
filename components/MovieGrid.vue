@@ -1,5 +1,5 @@
 <template>
-  <div v-if="items.length" class="grid">
+  <div v-if="items.length" class="movie-grid">
     <h1 class="grid-title">{{ title }}</h1>
     <div class="grid-body">
       <button
@@ -57,9 +57,9 @@ export default {
     // Check if the scroll buttons should be displayed
     checkScroll() {
       const list = this.$refs.list
-      this.showLeftArrow = list.scrollLeft > 0
+      this.showLeftArrow = list?.scrollLeft > 0
       this.showRightArrow =
-        list.scrollWidth - list.clientWidth > list.scrollLeft
+        list?.scrollWidth - list?.clientWidth > list?.scrollLeft
     },
     // Function to scroll the list to the left, used by the left arrow button
     scrollLeft() {
@@ -102,7 +102,7 @@ export default {
   padding: 20px 20px 0 20px;
 }
 
-.grid {
+.movie-grid {
   position: relative;
   &:hover {
     .scroll-arrow {
@@ -114,7 +114,6 @@ export default {
 .scroll-arrow {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   border: none;
   font-size: 2em;
   padding: 0.5em;
@@ -133,11 +132,13 @@ export default {
 
   &.left {
     left: 0;
+    padding-left: 40px;
   }
 
   &.right {
     right: 0;
     transform: scaleX(-1);
+    padding-right: 40px;
   }
   &:focus {
     outline: 2px solid #000;

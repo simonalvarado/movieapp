@@ -1,5 +1,5 @@
 <template>
-  <div class="login-container">
+  <div class="movie-app-login">
     <form @submit.prevent="login">
       <h2 class="login-title">Sign in</h2>
       <div
@@ -83,7 +83,7 @@ export default {
 <style lang="scss" scoped>
 @import '~@/assets/scss/_variables.scss';
 
-.login-container {
+.movie-app-login {
   max-width: 400px;
   color: $main-font-color;
   width: 100%;

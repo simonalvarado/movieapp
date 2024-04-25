@@ -1,5 +1,5 @@
 <template>
-  <div class="loading" aria-label="Loading spinner">
+  <div class="movie-loading" aria-label="Loading spinner">
     <span></span>
   </div>
 </template>
@@ -7,9 +7,9 @@
 <script></script>
 
 <style lang="scss" scoped>
-@import'~@/assets/scss/_variables.scss';
+@import '~@/assets/scss/_variables.scss';
 
-.loading {
+.movie-loading {
   height: 90vh;
   width: 100%;
   display: flex;
