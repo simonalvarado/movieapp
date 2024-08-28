@@ -1,6 +1,14 @@
 <template>
-  <div class="movie-app-login">
-    <form @submit.prevent="login">
+  <div
+    class="movie-app-login"
+    data-step="1"
+    data-intro="This is the login form."
+  >
+    <form
+      data-intro="This is the login form. Fill in your email and password and click 'Sign In'."
+      data-step="2"
+      @submit.prevent="login"
+    >
       <h2 class="login-title">Sign in</h2>
       <div
         v-if="errorMessage"
@@ -63,6 +71,31 @@ export default {
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       return this.emailTouched && !re.test(this.email.toLowerCase())
     },
+  },
+  mounted() {
+    this.$intro()
+      .setOptions({
+        steps: [
+          {
+            intro: 'Hi there! Welcome to my movies app.',
+          },
+          {
+            element: document.querySelector('#email'),
+            intro:
+              'This is where you enter your email. Use `test@example.com` for testing.',
+          },
+          {
+            element: document.querySelector('#password'),
+            intro:
+              'This is where you enter your password. Use `password` for testing.',
+          },
+          {
+            element: document.querySelector('.login-button'),
+            intro: 'Click here to sign in.',
+          },
+        ],
+      })
+      .start()
   },
   methods: {
     // Validate the email when the user types

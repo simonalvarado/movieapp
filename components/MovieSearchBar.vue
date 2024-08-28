@@ -19,6 +19,21 @@ export default {
       searchQuery: '',
     }
   },
+  mounted() {
+    this.$intro()
+      .setOptions({
+        steps: [
+          {
+            element: document.querySelector('#search-input'),
+            intro: 'You can filter movies by name here.',
+          },
+          {
+            intro: 'Enjoy exploring the app!',
+          },
+        ],
+      })
+      .start()
+  },
   methods: {
     filterMovies() {
       this.$emit('search', this.searchQuery)

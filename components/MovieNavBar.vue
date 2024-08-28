@@ -1,10 +1,6 @@
 <template>
   <nav class="movie-navbar">
-    <NuxtLink
-      to="/movies"
-      class="movies-app-link"
-      aria-label="Link to movies app"
-    >
+    <NuxtLink to="/" class="movies-app-link" aria-label="Link to movies app">
       <MovieAppTitle />
     </NuxtLink>
     <div class="search-bar-container">
